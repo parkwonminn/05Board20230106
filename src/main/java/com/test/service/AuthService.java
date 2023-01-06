@@ -7,8 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import org.mindrot.bcrypt.BCrypt;
 
-import com.test.dao.AuthDto;
 import com.test.dao.MemberDao;
+import com.test.dto.AuthDto;
 import com.test.dto.MemberDto;
 
 public class AuthService {

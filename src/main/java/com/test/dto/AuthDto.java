@@ -1,4 +1,4 @@
-package com.test.dao;
+package com.test.dto;
 
 public class AuthDto {
 	private String email;

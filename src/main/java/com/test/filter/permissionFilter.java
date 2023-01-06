@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.test.dao.AuthDto;
+import com.test.dto.AuthDto;
 
 public class permissionFilter implements Filter{
 	
