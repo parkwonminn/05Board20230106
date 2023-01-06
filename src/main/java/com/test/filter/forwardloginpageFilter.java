@@ -41,6 +41,14 @@ public class forwardloginpageFilter implements Filter{
 			req.getRequestDispatcher("/auth/login.do").forward(request, response);
 			return ;
 		}
+		else //로그인 한상태
+		{
+			
+			if(!request.getRequestURI().contains(".do")) {
+				req.getRequestDispatcher("/main.do").forward(request, response);
+				return ;
+			}
+		}
 		
 		//로그인한 상태
 		chain.doFilter(req, resp);
