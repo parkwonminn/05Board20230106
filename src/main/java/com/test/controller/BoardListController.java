@@ -1,14 +1,11 @@
 package com.test.controller;
 
-import java.net.URLEncoder;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.dto.MemberDto;
+import com.test.dto.Criteria;
 import com.test.service.BoardService;
 
 public class BoardListController implements SubController {
@@ -37,7 +34,16 @@ public class BoardListController implements SubController {
 			}
 			
 			//3 Service
-			boolean result=service.GetBoardList(req);
+			Criteria criteria=null;
+			if(params.get("pageno")==null) //최초 /board/list.do 접근
+			{
+				criteria = new Criteria(); //pageno=1 , amount=10
+			}
+			else
+			{
+				//페이지이동 요청 했을때
+			}
+			boolean result=service.GetBoardList(criteria,req);
 
 			//4 View
 			if(result) {		

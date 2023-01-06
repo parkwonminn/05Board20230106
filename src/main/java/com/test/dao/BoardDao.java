@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.test.dto.BoardDto;
-import com.test.dto.MemberDto;
+import com.test.dto.Criteria;
 
 public class BoardDao {
 	
@@ -43,7 +43,7 @@ public class BoardDao {
 	//싱글톤패턴
 	
 	//SELECTAll
-	public List<BoardDto> SelectAll() {
+	public List<BoardDto> SelectAll(int startno, int amount) {
 		
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -55,8 +55,9 @@ public class BoardDao {
 
 		try {
 			conn = ds.getConnection();
-			pstmt=conn.prepareStatement("select * from tbl_board");
-			
+			pstmt=conn.prepareStatement("select * from tbl_board order by no desc limit ?,?");
+			pstmt.setInt(1, startno);
+			pstmt.setInt(2, amount);
 			rs=pstmt.executeQuery();
 			if(rs!=null)
 			{

@@ -138,13 +138,17 @@ section {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>${list.size()}</td>
-					<td>게시물제목입니다</td>
-					<td>example@example.com</td>
-					<td>2023-01-06</td>
-					<td>0</td>
+			<c:forEach var="dto" items="${list}" varStatus="status" >
+			 	<tr>
+					<td>${dto.no}</td>
+					<td>${dto.title }</td>
+					<td>${dto.email }</td>
+					<td>${dto.regdate }</td>
+					<td>${dto.count }</td>
 				</tr>
+				
+			</c:forEach>
+				
 			</tbody>
 			<tfoot>
 				
@@ -171,8 +175,8 @@ section {
 					</td>
 					<!-- 글쓰기/처음으로 -->
 					<td colspan="2" style="text-align:right;">
-						<a href="${pageContext.request.contextPath}/board/post.do" class="btn btn-warning">글쓰기</a>
-						<a href="${pageContext.request.contextPath}/board/list.do" class="btn btn-danger">처음으로</a>
+						<a href="${pageContext.request.contextPath}/board/post.do" class="btn btn-danger">글쓰기</a>
+						<a href="${pageContext.request.contextPath}/board/list.do" class="btn btn-success">처음으로</a>
 					</td>
 					 
 				</tr>
