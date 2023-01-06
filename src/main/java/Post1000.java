@@ -7,7 +7,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class Post100 {
+public class Post1000 {
 	public static void main(String[] args) {
 
 		String url = "jdbc:mysql://localhost/shopdb?serverTimezone=UTC";
