@@ -126,7 +126,7 @@ section {
 		</div>
 		
 		<h1>자유게시판</h1>
-		
+		<p>Page No : ( <span style="color:red;">${pagedto.criteria.pageno} </span> / ${pagedto.totalpage} )</p>
 		<table class="table">
 			<thead>
 				<tr>
@@ -179,7 +179,7 @@ section {
 						    <!-- NEXT버튼 -->
 						    <c:if test="${pagedto.next}">
 							    <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Next">
+							      <a class="page-link" href="${pageContext.request.contextPath}/board/list.do?pageno=${pagedto.nowBlock*pagedto.pagePerBlock+1}" aria-label="Next">
 							        <span aria-hidden="true">&raquo;</span>
 							      </a>
 							    </li>
