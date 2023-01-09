@@ -170,7 +170,7 @@ section {
 						    
 						    <!-- 페이지번호 -->
 						    <c:forEach begin="${pagedto.startPage}" end="${pagedto.endPage }" var="pageno" step="1">
-							    <li class="page-item"><a class="page-link" href="#">${pageno}</a></li>
+							    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/board/list.do?pageno=${pageno}">${pageno}</a></li>
 						    </c:forEach>
 						    
 						

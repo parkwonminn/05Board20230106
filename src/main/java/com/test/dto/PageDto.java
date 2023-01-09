@@ -38,8 +38,10 @@ public class PageDto {
 		next=nowBlock<totalBlock;
 		
 		//블럭에 표시할 페이지 번호 계산
-		this.endPage = nowBlock * pagePerBlock ;
-		this.startPage=endPage-pagePerBlock + 1;
+		//
+		this.endPage = (nowBlock * pagePerBlock<totalpage)?nowBlock * pagePerBlock:totalpage ;
+		
+		this.startPage=nowBlock * pagePerBlock -pagePerBlock + 1;
 		 
 		
 	}
