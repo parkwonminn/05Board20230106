@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,15 +39,21 @@ ul {
 header {
 	magin-bottom: 10px;
 }
-header .top-header{height:40px;}
-header .top-header ul{
-display:flex;
-justify-content:right;align-items:center;
-height:40px;
-font-size:0.6rem;
+
+header .top-header {
+	height: 40px;
 }
-header .top-header ul li{
-	margin-left:10px;
+
+header .top-header ul {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 40px;
+	font-size: 0.6rem;
+}
+
+header .top-header ul li {
+	margin-left: 10px;
 }
 
 header nav {
@@ -106,18 +114,49 @@ section {
 				<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 				<li><a href="${pageContext.request.contextPath}/board/list.do">자유게시판</a></li>
 				<li><a href="javascript:void(0)">ETC</a></li>
-
 			</ul>
 		</nav>
 	</header>
 
 	<section class="container">
+		<!-- 메시지 -->
 		<div class="msg">${msg}</div>
+		<!-- 페이지경로표시 -->
 		<div>
 			<a href="${pageContext.request.contextPath}/main.do"> <i
 				class="bi bi-house-door"></i>
 			</a> > BOARD > POST
 		</div>
+
+		<h1>자유게시판</h1>
+		<p></p>
+		<form action="${pageContext.request.contextPath}/board.post.do" method="post" enctype="multipart/form-data">
+			<table class="table w-50">
+				<tr>
+					<td>Title</td>
+					<td><input type="text" class="form-control" /></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="text" class="form-control" value="${authdto.email}" /></td>
+				</tr>				
+				<tr>
+					<td>Content</td>
+					<td><textarea name="" id="" cols="30" rows="10" class="form-control"></textarea></td>
+				</tr>
+				<tr>
+					<td>Files</td>
+					<td><input type="file" class="form-control" multiple/></td>
+				</tr>	
+				<tr>
+					<td colspan=2>
+						<input type="submit" value="전송" class="btn btn-primary" />
+						<input type="reset" value="초기화" class="btn btn-secondary" />					
+					</td>				 
+				</tr>												
+			</table>
+		</form>
+		
 	</section>
 
 
