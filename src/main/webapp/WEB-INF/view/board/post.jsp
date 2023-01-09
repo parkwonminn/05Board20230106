@@ -130,23 +130,23 @@ section {
 
 		<h1>자유게시판</h1>
 		<p></p>
-		<form action="${pageContext.request.contextPath}/board.post.do" method="post" enctype="multipart/form-data">
+		<form action="${pageContext.request.contextPath}/board/post.do" method="post" enctype="multipart/form-data">
 			<table class="table w-50">
 				<tr>
 					<td>Title</td>
-					<td><input type="text" class="form-control" /></td>
+					<td><input type="text" class="form-control" name="title" /></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type="text" class="form-control" value="${authdto.email}" /></td>
+					<td><input type="text" class="form-control" name="email"  value="${authdto.email}" /></td>
 				</tr>				
 				<tr>
 					<td>Content</td>
-					<td><textarea name="" id="" cols="30" rows="10" class="form-control"></textarea></td>
+					<td><textarea name="" id="" cols="30" rows="10" name="content" class="form-control"></textarea></td>
 				</tr>
 				<tr>
 					<td>Files</td>
-					<td><input type="file" class="form-control" multiple/></td>
+					<td><input type="file" class="form-control" name="files"   multiple/></td>
 				</tr>	
 				<tr>
 					<td colspan=2>

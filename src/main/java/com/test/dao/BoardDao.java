@@ -125,6 +125,34 @@ public class BoardDao {
 	}
 	
 	
+	public int Insert(BoardDto dto) {
+		
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		
+		int result=0;
+		
+		try {
+			conn = ds.getConnection();
+			pstmt=conn.prepareStatement("insert into tbl_board values(null,?,?,?,now(),0,?,?,?)");
+			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getDirpath());
+			pstmt.setString(5, dto.getFilename());
+			pstmt.setString(6, dto.getFilesize());
+			result=pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {pstmt.close();}catch(Exception e) {}
+			try {conn.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
 	
 	
 	

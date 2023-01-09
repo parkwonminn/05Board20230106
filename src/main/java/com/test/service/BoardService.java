@@ -56,5 +56,18 @@ public class BoardService {
 		return false;
 	}
 	
+	//게시물 추가하기
+	public boolean PostBoard(BoardDto dto,HttpServletRequest request)
+	{
+		boolean flag=false;
+		
+		int result=dao.Insert(dto);
+		
+		if(result>0)
+			flag=true;
+		
+		return flag;
+	}
+	
 	
 }
