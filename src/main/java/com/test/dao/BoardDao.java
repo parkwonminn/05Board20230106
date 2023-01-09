@@ -89,6 +89,40 @@ public class BoardDao {
 		
 		return list;
 	}
+
+
+	
+	
+	public int getAmount() {
+		
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int cnt=0;
+		
+		try {
+			conn = ds.getConnection();
+			pstmt=conn.prepareStatement("select count(*) from tbl_board");
+			
+			rs=pstmt.executeQuery();
+			if(rs!=null)
+			{
+				rs.next();
+				cnt=rs.getInt(1);
+				
+			}	
+		}catch(Exception e) {
+			e.printStackTrace();
+
+		}finally {
+			try {rs.close();}catch(Exception e) {}
+			try {pstmt.close();}catch(Exception e) {}
+			try {conn.close();}catch(Exception e) {}
+		}
+		
+		return cnt;
+	}
 	
 	
 	

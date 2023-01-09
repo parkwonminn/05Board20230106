@@ -157,19 +157,34 @@ section {
 					<td colspan="3">
 						<nav aria-label="Page navigation example" >
 						  <ul class="pagination"  style="height:30px;">
-						    <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
-						    </li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
-						    </li>
+						  
+						  <!-- PREV 버튼 -->
+						  <c:if test="${pagedto.prev}">
+							 	 <li class="page-item">
+							      <a class="page-link" href="#" aria-label="Previous">
+							        <span aria-hidden="true">&laquo;</span>
+							      </a>
+							    </li> 
+						  </c:if>
+
+						    
+						    <!-- 페이지번호 -->
+						    <c:forEach begin="${pagedto.startPage}" end="${pagedto.endPage }" var="pageno" step="1">
+							    <li class="page-item"><a class="page-link" href="#">${pageno}</a></li>
+						    </c:forEach>
+						    
+						
+
+						    
+						    <!-- NEXT버튼 -->
+						    <c:if test="${pagedto.next}">
+							    <li class="page-item">
+							      <a class="page-link" href="#" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+						     </c:if>
+						     
 						  </ul>
 						</nav>
 					</td>
