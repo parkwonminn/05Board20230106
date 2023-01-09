@@ -40,6 +40,7 @@ public class PageDto {
 		//블럭에 표시할 페이지 번호 계산
 		this.endPage = nowBlock * pagePerBlock ;
 		this.startPage=endPage-pagePerBlock + 1;
+		 
 		
 	}
 

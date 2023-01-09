@@ -161,7 +161,7 @@ section {
 						  <!-- PREV 버튼 -->
 						  <c:if test="${pagedto.prev}">
 							 	 <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Previous">
+							      <a class="page-link" href="${pageContext.request.contextPath}/board/list.do?pageno=${pagedto.nowBlock * pagedto.pagePerBlock - pagedto.pagePerBlock*2 + 1}" aria-label="Previous">
 							        <span aria-hidden="true">&laquo;</span>
 							      </a>
 							    </li> 
